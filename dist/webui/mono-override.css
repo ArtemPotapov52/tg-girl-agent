@@ -1,0 +1,201 @@
+/* Минимальный монохром: тёмный фон, белый текст, без цветных акцентов.
+   Подключается после дефолтной темы в webui/index.html. */
+
+:root {
+  --bone: #0b0b0c;
+  --bone2: #131315;
+  --ink: #f2f2f2;
+  --accent: #f2f2f2;
+  --accent2: #9a9a9e;
+  --accent3: #c9c9cd;
+  --muted: #8a8a8f;
+  --line: #26262a;
+  --ga-bg: var(--bone);
+  --ga-bg-2: var(--bone2);
+  --ga-bg-glass: rgba(11, 11, 12, 0.92);
+  --ga-bg-elev: var(--bone2);
+  --ga-text: var(--ink);
+  --ga-text-dim: #b6b6ba;
+  --ga-text-faint: #8a8a8f;
+  --ga-accent: var(--accent);
+  --ga-accent-2: var(--accent2);
+  --ga-accent-3: var(--accent3);
+  --ga-border: var(--line);
+  --ga-border-strong: rgba(242, 242, 242, 0.22);
+  --ga-success: #d8d8dc;
+  --ga-warn: #b6b6ba;
+  --ga-error: #f2f2f2;
+  --ga-radius: 10px;
+  --ga-radius-sm: 6px;
+  --ga-bg-3: #131315;
+  --ga-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --ga-shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --ga-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body {
+  background: var(--ga-bg) !important;
+  color: var(--ga-text) !important;
+}
+
+body:before {
+  background: var(--ga-bg) !important;
+}
+
+/* Ссылки и кнопки */
+a,
+a:hover {
+  color: var(--ga-text) !important;
+}
+
+button {
+  background: var(--ga-bg-elev);
+  color: var(--ga-text);
+  border: 1px solid var(--ga-border);
+}
+
+.btn.primary,
+.btn.accent,
+.btn.danger {
+  background: var(--ga-text) !important;
+  color: #0b0b0c !important;
+  border-color: var(--ga-text) !important;
+}
+
+.btn.danger:hover,
+.btn.accent:hover,
+.btn.primary:hover {
+  background: #d8d8dc !important;
+}
+
+/* Поля ввода */
+.input,
+.textarea,
+.select {
+  background: var(--ga-bg-elev) !important;
+  color: var(--ga-text) !important;
+  border-color: var(--ga-border) !important;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: var(--ga-border-strong) !important;
+  background: #17171a !important;
+}
+
+/* Логи: монохром без цветных тегов */
+.logs-box {
+  background: #060607 !important;
+}
+
+.log-line .tag {
+  color: var(--ga-text-dim) !important;
+}
+
+.log-line.in .tag,
+.log-line.out .tag,
+.log-line.info .tag,
+.log-line.warn .tag,
+.log-line.error .tag {
+  color: var(--ga-text) !important;
+}
+
+.log-line .msg {
+  color: var(--ga-text) !important;
+}
+
+/* Чипы статусов: тон вместо цвета */
+.chip {
+  background: var(--ga-bg-elev) !important;
+  border-color: var(--ga-border) !important;
+  color: var(--ga-text-dim) !important;
+}
+
+.chip.accent,
+.chip.success,
+.chip.warn,
+.chip.error {
+  background: var(--ga-bg-elev) !important;
+  color: var(--ga-text) !important;
+  border-color: var(--ga-border-strong) !important;
+}
+
+/* Активные элементы навигации и селекторов */
+.nav-item.active {
+  background: var(--ga-bg-elev) !important;
+  color: var(--ga-text) !important;
+  box-shadow: inset 2px 0 0 var(--ga-text) !important;
+}
+
+.profile-picker .pp-avatar,
+.addon-card .icon-wrap {
+  background: var(--ga-bg-elev) !important;
+  color: var(--ga-text) !important;
+}
+
+.profile-picker .pp-dot {
+  background: var(--ga-text-faint) !important;
+}
+
+.profile-picker .pp-dot.running {
+  background: var(--ga-text) !important;
+  box-shadow: none !important;
+}
+
+.profile-picker .pp-dot.paused,
+.profile-picker .pp-dot.error {
+  background: var(--ga-text-faint) !important;
+  box-shadow: none !important;
+}
+
+/* Слайдеры и тумблеры */
+.range::-webkit-slider-thumb {
+  background: var(--ga-text) !important;
+  border-color: var(--ga-bg) !important;
+}
+
+.range::-moz-range-thumb {
+  background: var(--ga-text) !important;
+  border-color: var(--ga-bg) !important;
+}
+
+.toggle input:checked + .track {
+  background: var(--ga-text) !important;
+  border-color: transparent !important;
+}
+
+.toggle input:checked + .track .knob {
+  background: #0b0b0c !important;
+}
+
+/* Всплывающие панели и модалки */
+.profile-popover,
+.setup-card,
+.auth-card,
+.assistant-question,
+.question-bar,
+.chat-input {
+  background: var(--ga-bg-glass) !important;
+  border-color: var(--ga-border) !important;
+}
+
+.banner-stack [class*="banner"] {
+  background: var(--ga-bg-elev) !important;
+  border-color: var(--ga-border) !important;
+  color: var(--ga-text) !important;
+}
+
+/* Скроллбары */
+.content::-webkit-scrollbar-thumb,
+.logs-box::-webkit-scrollbar-thumb {
+  background: #2e2e33 !important;
+}
+
+/* Убрать цветное свечение статусов */
+[class*="glow"],
+[class*="pulse"] {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}

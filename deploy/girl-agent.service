@@ -1,0 +1,29 @@
+[Unit]
+Description=tg-girl-agent (Telegram AI Persona Engine)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+WorkingDirectory=/opt/tg-girl-agent
+Environment=GIRL_AGENT_DATA=/opt/tg-girl-agent/data
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/girl-agent.env
+ExecStart=/usr/bin/node /opt/tg-girl-agent/dist/cli.js --port 3000 --host 127.0.0.1 --no-browser
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+
+[Install]
+WantedBy=multi-user.target
